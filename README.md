@@ -83,6 +83,7 @@ The hybrid model balances both but inherits limitations from each.
 
 ## Project Structure
 
+```
 finalproject_hybrid_scam_detection-msjashonaryoung-svg/
 ├── .devcontainer/
 │   └── devcontainer.json
@@ -112,6 +113,7 @@ finalproject_hybrid_scam_detection-msjashonaryoung-svg/
     ├── hybrid_model.py
     ├── preprocessing.py
     └── rule_engine.py
+```
 
 ---
 
