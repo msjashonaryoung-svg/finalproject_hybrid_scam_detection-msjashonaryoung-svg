@@ -83,35 +83,35 @@ The hybrid model balances both but inherits limitations from each.
 
 ## Project Structure
 
-.
-├── hybrid-scam-detection/
-├── │
-├── ├── data/
-├── │   ├── raw/                         # Original downloaded datasets
-├── │   │   ├── uci_sms_spam.csv
-├── │   │   ├── phishing_legit_dataset_KD_10000.csv
-├── │   │   └── mendeley_sms_phishing.csv
-├── │   │
-├── │   └── processed/                  # Cleaned and combined dataset
-├── │       └── combined_scam_dataset.csv
-├── │
-├── ├── notebooks/
-├── │   └── final_project_demo.ipynb    # Main analysis and modeling notebook
-├── │
-├── ├── src/
-├── │   ├── data_collection.py          # Dataset download, cleaning, and merging
-├── │   ├── preprocessing.py            # Text cleaning utilities
-├── │   ├── rule_engine.py              # Rule-based scoring system
-├── │   ├── bert_model.py               # BERT scoring logic
-├── │   ├── hybrid_model.py             # Hybrid model combination logic
-├── │   └── evaluation.py               # Metrics and evaluation helpers
-├── │
-├── ├── reports/
-├── │   └── rough_final_draft.md        # Final written report (draft)
-├── │
-├── ├── README.md                      # Project overview and results
-├── ├── requirements.txt               # Python dependencies
-└── └── .gitignore                     # Ignored files
+finalproject_hybrid_scam_detection-msjashonaryoung-svg/
+├── .devcontainer/
+│   └── devcontainer.json
+├── .gitignore
+├── README.md
+├── data/
+│   ├── processed/
+│   │   └── combined_scam_dataset.csv
+│   └── raw/
+│       ├── kaggle_email_phishing_normalized.csv
+│       ├── manual_seed_examples.csv
+│       ├── mendeley_sms_phishing.csv
+│       ├── mendeley_sms_phishing_normalized.csv
+│       ├── phishing_legit_dataset_KD_10000.csv
+│       ├── sample_messages.csv
+│       └── uci_sms_spam.csv
+├── dockerfile
+├── notebooks/
+│   └── final_project_demo.ipynb
+├── reports/
+│   └── rough_final_draft.md
+├── requirements.txt
+└── src/
+    ├── bert_model.py
+    ├── data_collection.py
+    ├── evaluation.py
+    ├── hybrid_model.py
+    ├── preprocessing.py
+    └── rule_engine.py
 
 ---
 
