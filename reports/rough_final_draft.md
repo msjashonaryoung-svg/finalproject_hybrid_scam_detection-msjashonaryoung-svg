@@ -1,212 +1,129 @@
-# Hybrid Crypto Scam Detection: A Comparative Computational Linguistics Approach Using Rule-Based, BERT, and Hybrid NLP Systems
+# Hybrid Scam Detection: A Comparative Computational Linguistics Approach Using Rule-Based, BERT, and Hybrid NLP Systems
 
-## Project Summary
+## Abstract
 
-This project examines how different computational approaches can be used to detect deceptive cryptocurrency scam language in text. Cryptocurrency scams continue to grow across social media, text messages, email, and online forums, which creates a real-world need for better language-based fraud detection systems. Rather than relying on only one method, this project compares three different frameworks for representing and analyzing language.
-
-The first system is a rule-based model built from explicit linguistic cues such as urgency phrases, guaranteed return claims, impersonation language, wallet requests, suspicious commands, and other common scam indicators. The second system is a BERT-based contextual classifier that uses machine learning to evaluate meaning based on surrounding language rather than exact wording alone. The third system is a hybrid model that combines both approaches to test whether explicit rules and contextual modeling perform better together.
-
-The overall goal is to determine which framework provides the best balance of detection performance, interpretability, and linguistic coverage. In other words, I do not just want to know which model gets the highest score. I also want to understand *how* each system represents language, what kinds of scam messages each one catches well, and where each one fails. Humans love inventing scams, so apparently we need models for that now.
+This project investigates the effectiveness of different computational approaches for detecting scam and phishing language across SMS and email communication. A rule-based linguistic model, a BERT-based contextual model, and a hybrid approach are evaluated on a multi-source dataset of over 16,000 messages. The results highlight trade-offs between interpretability and performance, demonstrating that combining symbolic and contextual methods provides a more robust framework for detecting deceptive language.
 
 ---
 
-## Introduction
+## 1. Introduction
 
-Language is one of the primary tools used in online deception. Scam messages often rely on persuasion, urgency, false authority, fear, reward bait, and calls to immediate action. In cryptocurrency spaces, these tactics are especially common because transactions can be fast, anonymous, and difficult to reverse once funds are sent. A scam message does not always need advanced hacking. Sometimes it only needs the right wording at the right moment, which is rude but effective.
+Deceptive communication, including spam messages and phishing emails, relies heavily on linguistic manipulation such as urgency, impersonation, and reward-based persuasion. Detecting these patterns is a key challenge in natural language processing.
 
-Because scam communication is language-driven, it is a strong use case for computational linguistics. The challenge is deciding how language should be modeled. Should deceptive language be captured through explicit human-authored rules? Should it be learned automatically from labeled examples using modern language models? Or is the strongest solution a combination of both?
+This project compares three approaches:
 
-This project uses cryptocurrency scam detection as a case study to compare those competing approaches.
+- rule-based symbolic model  
+- BERT-based contextual model  
+- hybrid model  
 
----
-
-## Research Question
-
-Which computational linguistic framework best detects cryptocurrency scam language:
-
-1. A rule-based symbolic linguistic system  
-2. A BERT-based contextual classification system  
-3. A hybrid system combining both methods
-
-A secondary question is whether the strongest-performing system is also the most interpretable and practically useful.
+The goal is to evaluate how each approach captures deceptive language across different communication contexts.
 
 ---
 
-## Why This Topic Matters
+## 2. Dataset
 
-Online fraud continues to expand, and cryptocurrency scams have become one of the most visible examples of digital deception. Many scams are distributed through text-heavy channels such as social media posts, phishing emails, direct messages, fake support chats, and promotional spam. That means language itself becomes part of the attack surface.
+The dataset consists of **16,283 labeled messages** compiled from multiple sources:
 
-A successful detection system could help flag suspicious communication earlier and reduce harm. Even in a classroom setting, this project demonstrates how computational linguistics can be applied to a modern real-world problem rather than only theoretical examples. Also, if the internet insists on being weird, we may as well study it properly.
+- SMS spam dataset (UCI)  
+- phishing email dataset (Kaggle)  
+- SMS phishing / smishing dataset (Mendeley)  
+- manually curated examples  
+
+The dataset includes:
+
+- 9,066 legitimate messages  
+- 7,217 scam messages  
+
+This multi-source dataset enables analysis across SMS and email communication rather than restricting the study to a single domain.
 
 ---
 
-## Proposed Methodology
+## 3. Methodology
 
-## 1. Rule-Based Linguistic System
+### Rule-Based Linguistic System
 
-The first model will be a human-authored symbolic system using explicit scam indicators. These indicators will be organized into categories such as:
+The rule-based model uses explicitly defined linguistic patterns associated with scam messages, including:
 
 - urgency language  
-- guaranteed profit claims  
-- impersonation / fake authority  
-- wallet or credential requests  
-- fear of loss language  
-- suspicious formatting or links
+- reward-based persuasion  
+- credential or account requests  
+- impersonation or authority cues  
+- fear or loss framing  
+- action-based instructions  
 
-Example phrases may include:
-
-- act now  
-- limited time  
-- guaranteed returns  
-- official support  
-- connect wallet  
-- verify account
-
-This system will assign scores based on detected linguistic features and return an explanation showing which rules were triggered.
-
-### Purpose
-
-This model represents explicit linguistic knowledge. It is transparent, interpretable, and closely aligned with symbolic computational linguistics.
+The model assigns a score based on detected patterns and provides interpretable outputs through triggered rule categories.
 
 ---
 
-## 2. BERT-Based Contextual System
+### BERT-Based Contextual Model
 
-The second model will use a pretrained BERT language model. BERT was originally trained on large general text corpora and learns contextual relationships between words. Instead of only checking exact phrases, it evaluates how meaning is shaped by surrounding language.
+The BERT-based model uses a pretrained transformer model to evaluate contextual meaning. Rather than relying on exact keyword matches, it considers how meaning is shaped by surrounding language.
 
-For this project, a labeled dataset of scam and legitimate crypto-related text will be collected. BERT will then be fine-tuned on that dataset so it can better distinguish deceptive and non-deceptive language in this specific domain.
-
-### Purpose
-
-This model represents machine-learned linguistic understanding. It may capture paraphrases, subtle persuasion tactics, and contextual scam intent that a rule system misses.
+In this project, a pretrained sentiment-based BERT model is used as a proxy for contextual classification rather than a fine-tuned scam detection model.
 
 ---
 
-## 3. Hybrid System
+### Hybrid Model
 
-The third model will combine the outputs of the rule-based system and the BERT classifier. For example, rule scores and BERT probabilities may be merged into a final risk score.
-
-This system will test whether explicit linguistic knowledge and contextual machine learning perform better together than either method alone.
-
-### Purpose
-
-This model represents a hybrid view of language processing where handcrafted linguistic structure and learned semantic context support one another instead of competing like toddlers in a toy aisle.
+The hybrid model combines rule-based scores and BERT predictions into a single output. This approach aims to balance interpretability and contextual understanding by leveraging both symbolic and machine-learned representations.
 
 ---
 
-## Data Sources
+### Threshold Selection
 
-The dataset will include both scam and legitimate examples.
+Threshold values were applied to convert model scores into binary classifications. These thresholds were selected empirically to balance precision and recall, particularly for the rule-based and hybrid models, where score distributions differ significantly.
 
-### Potential Scam Sources
-
-- public spam or phishing datasets  
-- cryptocurrency scam examples from research papers  
-- scam-like social media posts  
-- manually curated examples based on recurring scam tactics
-
-### Potential Legitimate Sources
-
-- CoinDesk news headlines  
-- Cointelegraph articles  
-- Binance or Coinbase announcements  
-- Yahoo Finance headlines  
-- educational or regulatory crypto content
-
-Each example will be labeled as either:
-
-- scam  
-- legitimate
-
-Optional future labels may include scam subtype categories such as phishing, impersonation, giveaway fraud, or investment scam.
+Small adjustments to threshold values were observed to significantly impact model performance, highlighting the sensitivity of classification decisions to scoring strategies.
 
 ---
 
-## Tools and Libraries
+## 4. Results
 
-The project will be implemented in Python using tools such as:
-
-- pandas  
-- numpy  
-- nltk  
-- scikit-learn  
-- transformers  
-- torch  
-- matplotlib
-
-Development will be organized through GitHub with notebook-based experimentation and reusable source modules.
+| Model        | Accuracy | Precision | Recall | F1 Score |
+|-------------|---------|----------|--------|---------|
+| Rule-Based  | 0.64    | 1.00     | 0.19   | 0.32    |
+| BERT Proxy  | 0.72    | 0.63     | 0.85   | 0.73    |
+| Hybrid      | 0.72    | 0.64     | 0.84   | 0.72    |
 
 ---
 
-## Evaluation Plan
+## 5. Discussion
 
-All three systems will be tested on the same held-out evaluation data.
+The rule-based model achieves perfect precision, meaning it only flags messages as scams when explicit indicators are present. However, its recall is extremely low, demonstrating that it misses a large number of scam messages that do not match predefined patterns.
 
-Metrics may include:
+The BERT-based model significantly improves recall, capturing more subtle and context-based scam language. However, it produces more false positives, likely due to being trained on general sentiment rather than scam-specific data.
 
-- Accuracy  
-- Precision  
-- Recall  
-- F1-score
+The hybrid model balances these approaches, achieving strong recall while slightly improving precision compared to BERT alone. However, it does not significantly outperform the BERT model, suggesting that simple score combination is not sufficient to fully leverage both approaches.
 
-In addition to numeric metrics, the project will compare:
+Disagreement analysis shows that the models frequently classify messages differently. This highlights the fundamental difference between symbolic and neural language processing:
 
-- interpretability  
-- types of messages missed  
-- false positives  
-- practical usefulness
+- rule-based systems detect explicit linguistic cues  
+- contextual models infer meaning from broader patterns  
 
-This matters because a model that scores well but cannot explain itself may be less useful than a slightly weaker model with clear reasoning.
+The sensitivity of model performance to threshold selection further highlights the importance of calibration when combining symbolic and neural approaches.
 
 ---
 
-## Connection to Course Themes
+## 6. Limitations
 
-This project directly connects to symbolic computational linguistics by comparing different ways linguistic knowledge can be represented computationally.
+Several limitations affect the results:
 
-### Rule-Based System
-Uses explicit symbolic descriptions of language patterns.
+- the BERT model is not fine-tuned for scam detection  
+- dataset sources use different labeling standards  
+- rule-based patterns cannot capture evolving scam language  
+- hybrid model relies on simple weighted combination  
 
-### BERT-Based System
-Uses learned contextual representations derived from labeled examples.
-
-### Hybrid System
-Combines symbolic rules with contextual inference.
-
-The project also draws on lexical, semantic, pragmatic, and discourse features commonly studied in linguistics. In short, this is not just about catching scams. It is about comparing theories of language understanding through a real application.
+These limitations contribute to false positives, missed detections, and inconsistencies across models.
 
 ---
 
-## Limitations
+## 7. Conclusion
 
-Several limitations are expected:
+This project demonstrates that combining symbolic linguistic rules with contextual machine learning provides a more effective approach to detecting scam and phishing language than either method alone.
 
-- scam language changes quickly  
-- datasets may be noisy or imbalanced  
-- some legitimate marketing language may resemble scams  
-- BERT requires more compute resources than rules  
-- no model can perfectly detect all deception
+However, it also shows that each approach has inherent limitations. Rule-based systems are precise but narrow, while contextual models are flexible but less interpretable.
 
-Unfortunately, criminals do not pause innovation for academic timelines.
-
----
-
-## Timeline / Next Steps
-
-### Phase 1
-Collect data and finalize preprocessing pipeline.
-
-### Phase 2
-Build and test rule-based system.
-
-### Phase 3
-Fine-tune and evaluate BERT system.
-
-### Phase 4
-Build hybrid scoring system.
-
-### Phase 5
-Compare results, finalize report, and prepare presentation.
+Future work should focus on fine-tuning models for domain-specific detection and developing more advanced hybrid methods that better integrate symbolic and neural representations.
 
 ---
 
@@ -218,6 +135,6 @@ Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2019). *BERT: Pre-training o
 
 Jurafsky, D., & Martin, J. H. (n.d.). *Speech and language processing*.
 
-Nizzoli, L., Tardelli, S., Avvenuti, M., Cresci, S., & Tesconi, M. (2021). *Charting the landscape of online cryptocurrency scams*. IEEE Access.
+Nizzoli, L., Tardelli, S., Avvenuti, M., Cresci, S., & Tesconi, M. (2021). *Charting the landscape of online scams*. IEEE Access.
 
 Bar-Hillel, Y. (1960). *A demonstration of the nonfeasibility of fully automatic high quality translation*.

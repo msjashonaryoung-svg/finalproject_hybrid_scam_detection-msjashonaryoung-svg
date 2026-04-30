@@ -6,3 +6,6 @@ transformers
 torch
 matplotlib
 jupyter
+seaborn
+requests
+kagglehub

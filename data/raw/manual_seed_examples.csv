@@ -1,0 +1,11 @@
+text,label,source
+Official support here. Verify your account now to avoid suspension.,scam,manual_seed_examples
+Your account has been compromised. Reset your password immediately.,scam,manual_seed_examples
+Limited time offer. Confirm your identity to claim your reward.,scam,manual_seed_examples
+Urgent: your payment failed. Update your billing information now.,scam,manual_seed_examples
+"Congratulations, you have won a prize. Click the link to claim today.",scam,manual_seed_examples
+Your monthly statement is now available in your account portal.,legitimate,manual_seed_examples
+Your appointment confirmation has been updated.,legitimate,manual_seed_examples
+Your package delivery status changed this morning.,legitimate,manual_seed_examples
+Your password was changed successfully.,legitimate,manual_seed_examples
+Thank you for contacting customer support. We received your request.,legitimate,manual_seed_examples
