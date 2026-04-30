@@ -83,34 +83,35 @@ The hybrid model balances both but inherits limitations from each.
 
 ## Project Structure
 
-hybrid-scam-detection/
-│
-├── data/
-│   ├── raw/                         # Original downloaded datasets
-│   │   ├── uci_sms_spam.csv
-│   │   ├── phishing_legit_dataset_KD_10000.csv
-│   │   └── mendeley_sms_phishing.csv
-│   │
-│   └── processed/                  # Cleaned and combined dataset
-│       └── combined_scam_dataset.csv
-│
-├── notebooks/
-│   └── final_project_demo.ipynb    # Main analysis and modeling notebook
-│
-├── src/
-│   ├── data_collection.py          # Dataset download, cleaning, and merging
-│   ├── preprocessing.py            # Text cleaning utilities
-│   ├── rule_engine.py              # Rule-based scoring system
-│   ├── bert_model.py               # BERT scoring logic
-│   ├── hybrid_model.py             # Hybrid model combination logic
-│   └── evaluation.py               # Metrics and evaluation helpers
-│
-├── reports/
-│   └── rough_final_draft.md        # Final written report (draft)
-│
-├── README.md                      # Project overview and results
-├── requirements.txt               # Python dependencies
-└── .gitignore                     # Ignored files
+.
+├── hybrid-scam-detection/
+├── │
+├── ├── data/
+├── │   ├── raw/                         # Original downloaded datasets
+├── │   │   ├── uci_sms_spam.csv
+├── │   │   ├── phishing_legit_dataset_KD_10000.csv
+├── │   │   └── mendeley_sms_phishing.csv
+├── │   │
+├── │   └── processed/                  # Cleaned and combined dataset
+├── │       └── combined_scam_dataset.csv
+├── │
+├── ├── notebooks/
+├── │   └── final_project_demo.ipynb    # Main analysis and modeling notebook
+├── │
+├── ├── src/
+├── │   ├── data_collection.py          # Dataset download, cleaning, and merging
+├── │   ├── preprocessing.py            # Text cleaning utilities
+├── │   ├── rule_engine.py              # Rule-based scoring system
+├── │   ├── bert_model.py               # BERT scoring logic
+├── │   ├── hybrid_model.py             # Hybrid model combination logic
+├── │   └── evaluation.py               # Metrics and evaluation helpers
+├── │
+├── ├── reports/
+├── │   └── rough_final_draft.md        # Final written report (draft)
+├── │
+├── ├── README.md                      # Project overview and results
+├── ├── requirements.txt               # Python dependencies
+└── └── .gitignore                     # Ignored files
 
 ---
 
