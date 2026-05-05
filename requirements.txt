@@ -9,3 +9,5 @@ jupyter
 seaborn
 requests
 kagglehub
+transformers
+torch
